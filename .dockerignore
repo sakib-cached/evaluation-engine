@@ -1,0 +1,22 @@
+# Ignore local virtual environment
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Ignore local datasets (downloaded dynamically inside container if needed, or mounted)
+data/*.csv
+
+# Ignore local model checkpoints and mlflow databases
+mlflow.db
+mlruns/
+models/
+
+# Ignore version control files
+.git/
+.gitignore
+
+# Ignore docker files
+Dockerfile
+.dockerignore

@@ -349,9 +349,23 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Finetune DistilBERT on IMDb Sentiment dataset")
     parser.add_argument("--config", type=str, default="configs/config.yaml", help="Path to config file")
     parser.add_argument("--quick-test", action="store_true", help="Run in quick test mode with tiny subsets")
+    parser.add_argument("--lr", type=float, default=None, help="Override learning rate")
+    parser.add_argument("--batch-size", type=int, default=None, help="Override batch size")
+    parser.add_argument("--epochs", type=int, default=None, help="Override training epochs")
     args = parser.parse_args()
     
     with open(args.config, "r") as f:
         cfg = yaml.safe_load(f)
+        
+    # Apply CLI overrides to config dictionary
+    if args.lr is not None:
+        cfg["training"]["learning_rate"] = args.lr
+        logger.info(f"Overriding learning rate from CLI: {args.lr}")
+    if args.batch_size is not None:
+        cfg["training"]["batch_size"] = args.batch_size
+        logger.info(f"Overriding batch size from CLI: {args.batch_size}")
+    if args.epochs is not None:
+        cfg["training"]["epochs"] = args.epochs
+        logger.info(f"Overriding epochs from CLI: {args.epochs}")
         
     run_training(cfg, quick_test=args.quick_test)

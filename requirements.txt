@@ -1,0 +1,24 @@
+# Machine Learning and Deep Learning
+torch
+torchvision
+transformers>=4.30.0
+captum>=0.6.0
+
+# Experiment Tracking and Deployment
+mlflow>=2.3.0
+streamlit>=1.22.0
+
+# Data Science and Visualization
+pandas
+numpy
+scikit-learn
+matplotlib
+plotly
+seaborn
+
+# Utilities
+pyyaml
+tqdm
+watchdog
+ipykernel
+nbformat

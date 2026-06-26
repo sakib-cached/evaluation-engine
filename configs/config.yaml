@@ -1,0 +1,33 @@
+# Dataset configuration
+data:
+  train_path: "data/Train.csv"
+  valid_path: "data/Valid.csv"
+  test_path: "data/Test.csv"
+  # Set to null to use the full dataset, or an integer to use a subset for quick testing
+  train_sample_size: null
+  val_sample_size: null
+
+# Model architecture configuration
+model:
+  model_name: "distilbert-base-uncased"
+  max_length: 128
+  num_classes: 2
+  dropout: 0.2
+
+# Training hyper-parameters
+training:
+  batch_size: 16
+  epochs: 3
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  adam_epsilon: 1.0e-8
+  warmup_ratio: 0.1
+  early_stopping_patience: 2
+  save_dir: "models/best_model"
+  device: "auto"  # Can be auto, cuda, mps, or cpu
+
+# MLflow tracking configuration
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: "IMDb-Sentiment-Analysis"
+  registry_model_name: "DistilBERT-Sentiment-Classifier"

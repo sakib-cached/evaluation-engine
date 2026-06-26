@@ -1,0 +1,20 @@
+# Python virtual environments and cache
+venv/
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+
+# Datasets and models
+data/*.csv
+models/*
+!models/.gitkeep
+
+# MLflow local databases and artifact directories
+mlflow.db
+mlruns/
+artifacts/*
+!artifacts/.gitkeep
